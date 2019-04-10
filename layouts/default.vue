@@ -1,13 +1,31 @@
 <template>
-  <div class="container">
+  <div class="layout-container">
+    <pageHeader/>
     <nuxt/>
   </div>
 </template>
 
+<script>
+import pageHeader from "~/components/pageHeader.vue";
+
+export default {
+  components: {
+    pageHeader
+  }
+};
+</script>
+
+
 <style>
+/* variables pertaing to everything
+https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+*/
+
+:root {
+}
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -24,12 +42,19 @@ html {
   margin: 0;
 }
 
-.container {
+.layout-container {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 20% auto 10%;
+  justify-content: stretch;
   align-items: center;
   text-align: center;
+}
+.page-container {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
 }
 
 .button--green {
